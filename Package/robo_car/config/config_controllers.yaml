@@ -1,0 +1,25 @@
+ # Robot name goes here
+robo_car:  # Robot name
+  # default controller
+  joint_state_controller:
+    publish_rate: 50
+    type: joint_state_controller/JointStateController
+  
+  # Controller 1
+  Rear_wheel_motor: # Name of the motor
+    type: velocity_controllers/JointVelocityController # Type of controller 
+    joint: Rear_shaft_joint # Name of the joint
+    pid : {p: 100, i: 0.01, d: 10.0} # PID values
+  # Controller 2
+  Front_left_wheel_motor:  # Name of the motor
+    type: effort_controllers/JointPositionController # Type of controller 
+    joint: Front_left_shaft_joint # Name of the joint  
+    pid : {p: 100, i: 0.01, d: 10.0} # PID values
+  # Controller 3 
+  Front_right_wheel_motor:  # Name of the motor
+    type: effort_controllers/JointPositionController # Type of controller
+    joint: Front_right_shaft_joint # Name of the joint 
+    pid : {p: 100, i: 0.01, d: 10.0} # PID values 
+
+
+ 

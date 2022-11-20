@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robo_car">
+  <link
+    name="dummy_link">
+  </link>
+    <joint name="dummy_joint" type="fixed">
+      <parent link="dummy_link"/>
+      <child link="Chassis"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <axis
+      xyz="0 0 0" />
+    </joint>
+
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="-0.0103462273341146 -2.07617491865264E-07 0.123284817346471"
+        rpy="0 0 0" />
+      <mass
+        value="23.3799371164355" />
+      <inertia
+        ixx="0.157573739259077"
+        ixy="0.000119732264766818"
+        ixz="0.0250783025046396"
+        iyy="1.20795077711847"
+        iyz="2.95993541448176E-07"
+        izz="1.27270240514744" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Rear_shaft">
+    <inertial>
+      <origin
+        xyz="0 0 -1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.08499993499038" />
+      <inertia
+        ixx="0.0370759327564845"
+        ixy="1.19804340059648E-19"
+        ixz="2.70164934993595E-34"
+        iyy="0.0370759327564845"
+        iyz="2.06540513858489E-19"
+        izz="0.0015133033778157" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_shaft.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_shaft.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_shaft_joint"
+    type="continuous">
+    <origin
+      xyz="-0.224746997513262 0 0.10293611342508"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_shaft" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Rear_right_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 0.0392290706074728"
+        rpy="0 0 0" />
+      <mass
+        value="2.04635551013629" />
+      <inertia
+        ixx="0.00676619149168084"
+        ixy="-1.2468929200419E-18"
+        ixz="1.18764787385904E-20"
+        iyy="0.00676619149168083"
+        iyz="1.33633203056561E-19"
+        izz="0.0117296858492282" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_right_wheel.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="Rear_right_wheel_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.254"
+      rpy="0 0 0" />
+    <parent
+      link="Rear_shaft" />
+    <child
+      link="Rear_right_wheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Rear_left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 0 -0.0392290706074729"
+        rpy="0 0 0" />
+      <mass
+        value="2.04635551013629" />
+      <inertia
+        ixx="0.00676619149168085"
+        ixy="5.55715729148287E-19"
+        ixz="-1.05877140014832E-20"
+        iyy="0.00676619149168085"
+        iyz="-4.36011621144649E-20"
+        izz="0.0117296858492282" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Rear_left_wheel.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="Rear_left_wheel_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.254"
+      rpy="0 0 0" />
+    <parent
+      link="Rear_shaft" />
+    <child
+      link="Rear_left_wheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Front_left_shaft">
+    <inertial>
+      <origin
+        xyz="-4.16333634234434E-17 0.0752407405474483 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.488548380180526" />
+      <inertia
+        ixx="0.000875162165757892"
+        ixy="1.39336919823332E-19"
+        ixz="7.47110791999739E-22"
+        iyy="0.000317315913187682"
+        iyz="1.63858254292143E-19"
+        izz="0.000879594996011267" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_left_shaft.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_left_shaft.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_left_shaft_joint"
+    type="revolute">
+    <origin
+      xyz="0.271315002486738 0.0958849999999999 0.10293611342508"
+      rpy="0 0 0.0113510822667684" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Front_left_shaft" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.872665"
+      upper="0.872665"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="Front_left_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 -0.0392290706074729"
+        rpy="0 0 0" />
+      <mass
+        value="2.04635551013629" />
+      <inertia
+        ixx="0.00676619149168084"
+        ixy="-7.68897511059205E-20"
+        ixz="1.42301535138722E-19"
+        iyy="0.00676619149168084"
+        iyz="1.42450473063605E-20"
+        izz="0.0117296858492282" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_left_wheel.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="Front_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.158750000000003 0"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Front_left_shaft" />
+    <child
+      link="Front_left_wheel" />
+    <axis
+      xyz="0 0 1" />
+      <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="Front_right_shaft">
+    <inertial>
+      <origin
+        xyz="-0.00323605114559641 -0.075171118197826 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.488548380180526" />
+      <inertia
+        ixx="0.000874130262101801"
+        ixy="-2.39703725963753E-05"
+        ixz="-9.2511483260975E-21"
+        iyy="0.000318347816843774"
+        iyz="-1.55159136928612E-19"
+        izz="0.000879594996011268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_right_shaft.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_right_shaft.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_right_shaft_joint"
+    type="revolute">
+    <origin
+      xyz="0.271315002486738 -0.0958849999999998 0.10293611342508"
+      rpy="0 0 0.0113510822667684" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Front_right_shaft" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.872665"
+      upper="0.872665"
+      effort="100"
+      velocity="10" />
+  </joint>
+  <link
+    name="Front_right_wheel">
+    <inertial>
+      <origin
+        xyz="-0.00168721463872283 -5.55111512312578E-17 0.0391927708575061"
+        rpy="0 0 0" />
+      <mass
+        value="2.04635551013629" />
+      <inertia
+        ixx="0.00677537296050123"
+        ixy="3.25591294534012E-19"
+        ixz="-0.000213278853415704"
+        iyy="0.00676619149168084"
+        iyz="-2.85912987260344E-18"
+        izz="0.0117205043804078" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robo_car/meshes/Front_right_wheel.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="Front_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00682772545333332 -0.158603104210273 0"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Front_right_shaft" />
+    <child
+      link="Front_right_wheel" />
+    <axis
+      xyz="-0.0430092941942245 0 0.99907467219068" />
+      <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+  <transmission name="Rear_wheel_motor">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rear_shaft_joint">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rear_wheel_motor">
+    <mechanicalReduction>50</mechanicalReduction>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </actuator>
+  </transmission>
+
+  <transmission name="Front_left_wheel_motor">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Front_left_shaft_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Front_left_wheel_motor">
+    <mechanicalReduction>50</mechanicalReduction>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+  </transmission>
+
+  <transmission name="Front_right_wheel_motor">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Front_right_shaft_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Front_right_wheel_motor">
+    <mechanicalReduction>50</mechanicalReduction>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+  </transmission>
+</robot>
